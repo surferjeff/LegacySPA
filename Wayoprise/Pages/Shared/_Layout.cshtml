@@ -1,4 +1,5 @@
 ﻿@using Htmx;
+@{ ViewContext.HttpContext.Response.Headers.Add("Vary", "HX-Boosted"); }
 @if (this.ViewContext.HttpContext.Request.IsHtmxBoosted()) {
     <title id=title hx-swap-oob=true>@ViewData["Title"] - Wayoprise</title>
     <text>@RenderBody()</text>
