@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Htmx;
+@{ ViewContext.HttpContext.Response.Headers.Add("Vary", "HX-Boosted"); }
+@if (ViewContext.HttpContext.Request.IsHtmxBoosted()) {
+    <text>@RenderBody()</text>
+} else {
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,7 +13,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Wayoprise.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body hx-boost=true hx-target="#RenderBody">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -31,7 +36,7 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" id="RenderBody">
             @RenderBody()
         </main>
     </div>
@@ -50,3 +55,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+}
