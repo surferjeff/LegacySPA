@@ -2,6 +2,7 @@
 @{ ViewContext.HttpContext.Response.Headers.Add("Vary",
     Htmx.HtmxRequestHeaders.Keys.Boosted); }
 @if (ViewContext.HttpContext.Request.IsHtmxBoosted()) {
+    <title id=title hx-swap-oob=true>@ViewData["Title"] - Wayoprise</title>
     <text>@RenderBody()</text>
 } else {
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Wayoprise</title>
+    <title id=title>@ViewData["Title"] - Wayoprise</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Wayoprise.styles.css" asp-append-version="true" />
