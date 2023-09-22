@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Wayoprise.styles.css" asp-append-version="true" />
 </head>
-<body hx-boost=true hx-target="#RenderBody">
+<body hx-boost=true hx-target="main">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -36,7 +36,7 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3" id="RenderBody">
+        <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
