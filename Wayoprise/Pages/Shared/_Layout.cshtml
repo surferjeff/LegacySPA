@@ -1,5 +1,6 @@
 ﻿@{ ViewContext.HttpContext.Response.Headers.Add("Vary", "HX-Boosted"); }
 @if (ViewContext.HttpContext.Request.Headers["HX-Boosted"].Contains("true")) {
+    <title id=title hx-swap-oob=title>@ViewData["Title"] - Wayoprise</title>
     <text>@RenderBody()</text>
 } else {
 <!DOCTYPE html>
